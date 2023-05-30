@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="result">
+        <a href="./localdata.html">Admin</a>
+    </div>
+</body>
+<script>
+    let products = JSON.parse(localStorage.getItem('products')) || [];
+    products.map((ele) => {
+        let img = document.createElement('img')
+        img.src = ele.img;
+        let title = document.createElement("h3").innerHTML = ele.title;
+        let price = document.createElement("h3").innerHTML = ele.price;
+        let category = document.createElement("h3").innerHTML = ele.cat;
+        let div = document.createElement("div")
+        div.append(img,title,price,category)
+        document.getElementById("result").append(div)
+    })
+</script>
+
+</html>
